@@ -1,11 +1,14 @@
 import hashlib
 import json
+
 from time import time
 from uuid import uuid4
 from flask import Flask, jsonify, request
 from urllib.parse import urlparse
-from blockchain import Block
 
+from FullBlockchainSmaple.Block import Block
+from FullBlockchainSmaple.Mining import Mining
+from FullBlockchainSmaple.Transact import Transact
 
 # Instantiate our Node
 app = Flask(__name__)
@@ -33,6 +36,7 @@ def full_chain():
     return jsonify(response), 200
 
 if __name__ == '__main__':
+    app.debug = True
     app.run(host='0.0.0.0', port=5000)
 
 @app.route('/transactions/new', methods=['POST'])

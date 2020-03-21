@@ -36,7 +36,6 @@ class Block(object):
      # Returns the last Block in the chain
         return self.chain[-1]
 
-
     @staticmethod
     def hash(block):
         """
